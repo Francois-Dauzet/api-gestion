@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %} {% block title %}Mofifier l'état général{%
+endblock %} {% block body %}
+<h1>Mofifier l'état général</h1>
+
+{{ include("states/_form.html.twig", { button_label: "Mettre à jour" }) }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_states_index') }}"
+  >Retour</a
+>
+
+{{ include("states/_delete_form.html.twig") }}
+{% endblock %}

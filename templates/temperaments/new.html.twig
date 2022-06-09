@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TTemperaments{% endblock %}
+
+{% block body %}
+    <h1>Create new TTemperaments</h1>
+
+    {{ include('temperaments/_form.html.twig') }}
+
+    <a href="{{ path('app_temperaments_index') }}">back to list</a>
+{% endblock %}

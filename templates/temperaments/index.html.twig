@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TTemperaments index{% endblock %}
+
+{% block body %}
+    <h1>TTemperaments index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_temperament in t_temperaments %}
+            <tr>
+                <td>{{ t_temperament.id }}</td>
+                <td>{{ t_temperament.label }}</td>
+                <td>
+                    <a href="{{ path('app_temperaments_show', {'id': t_temperament.id}) }}">show</a>
+                    <a href="{{ path('app_temperaments_edit', {'id': t_temperament.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_temperaments_new') }}">Create new</a>
+{% endblock %}

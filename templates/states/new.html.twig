@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %} {% block title %}Crée un état général{% endblock
+%} {% block body %}
+<h1>Crée un état général</h1>
+
+{{ include("states/_form.html.twig") }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_states_index') }}"
+  >Retour</a
+>
+{% endblock %}

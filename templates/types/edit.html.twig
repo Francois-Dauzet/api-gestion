@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %} {% block title %}Modifier le type de ruche{%
+endblock %} {% block body %}
+<h1>Modifier le type de ruche</h1>
+
+{{ include("types/_form.html.twig", { button_label: "Mettre à jour" }) }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_types_index') }}">Retour</a>
+
+{{ include("types/_delete_form.html.twig") }}
+{% endblock %}

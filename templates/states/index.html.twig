@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %} {% block title %}Etat général{% endblock %} {%
+block body %}
+<h1>Etat général</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Etat</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t_state in t_states %}
+    <tr>
+      <td>
+        <span class="fs-5">{{ t_state.label }}</span>
+      </td>
+      <td>
+        <a
+          class="btn btn-primary m-1"
+          href="{{ path('app_states_edit', { id: t_state.id }) }}"
+          >Modifier</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="2">
+        <a class="text-decoration-none" href="{{ path('app_states_new') }}"
+          ><b>+</b>Ajouter un état général</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a class="btn btn-secondary m-1" href="{{ path('app_user_info_account') }}"
+  >Retour</a
+>
+
+{% endblock %}

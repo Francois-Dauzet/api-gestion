@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %} {% block title %}Utilisateurs{% endblock %} {%
+block body %}
+<h1>Utilisateurs</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Roles</th>
+      <th>actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t_user_account in t_user_accounts %}
+    <tr>
+      <td>
+        <span class="fs-5">{{ t_user_account.email }}</span>
+      </td>
+      <td>
+        <span
+          class="fs-5"
+          >{{ t_user_account.roles ? t_user_account.roles|json_encode : '' }}</span
+        >
+      </td>
+
+      <td>
+        <a
+          class="btn btn-primary m-1"
+          href="{{
+            path('app_t_user_account_edit', { id: t_user_account.id })
+          }}"
+          >Modifier</a
+        >
+      </td>
+    </tr>
+    {% else %}
+    <tr>
+      <td colspan="5">Aucun utilisateur enregistré</td>
+    </tr>
+    {% endfor %}
+    <a class="btn btn-secondary m-1" href="{{ path('app_user_dashboard') }}"
+      >Retour</a
+    >
+  </tbody>
+</table>
+
+{# <a href="{{ path('app_t_user_account_new') }}">Create new</a> #} {% endblock
+%}

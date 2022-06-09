@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.0.0/dist/axentix.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/axentix@2.0.0/dist/axentix.min.js" defer></script>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link
+		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	{# <div class="nav-t">
+			<details>
+				<summary>Users</summary>
+				<ul class="nav-test">
+					<li>
+						<a href={{path('app_register')}}>Register</a>
+					</li>
+					<li>
+						<a href={{path('app_login')}}>Login</a>
+					</li>
+					<li>
+						<a href={{path('app_t_user_account_index')}}>Account</a>
+					</li>
+					<li>
+						<a href={{path('app_birthdate_index')}}>Birthdate</a>
+					</li>
+					<li>
+						<a href={{path('app_phone_index')}}>Phone</a>
+					</li>
+					<li>
+						<a href={{path('app_address_index')}}>Address</a>
+					</li>
+					<li>
+						<a href={{path('app_identity_index')}}>Identity</a>
+					</li>
+				</ul>
+			</details>
+			<details>
+				<summary>Apiaries</summary>
+				<ul class="nav-test">
+					<li>
+						<a href={{path('app_apiaries_index')}}>Apiaries</a>
+					</li>
+					<li>
+						<a href={{path('app_coordinates_gps_index')}}>Coordinates</a>
+					</li>
+					<li>
+						<a href={{path('app_honeyed_index')}}>Honeyed</a>
+					</li>
+				</ul>
+			</details>
+			<details>
+				<summary>Hives</summary>
+				<ul class="nav-test">
+					<li>
+						<a href={{path('app_hives_index')}}>Hives</a>
+					</li>
+					<li>
+						<a href={{path('app_materials_index')}}>Materials</a>
+					</li>
+					<li>
+						<a href={{path('app_types_index')}}>Types</a>
+					</li>
+					<li>
+						<a href={{path('app_formats_index')}}>Formats</a>
+					</li>
+					<li>
+						<a href={{path('app_states_index')}}>States</a>
+					</li>
+					<li>
+						<a href={{path('app_categories_index')}}>Categories</a>
+					</li>
+				</ul>
+			</details>
+			<details>
+				<summary>Queens</summary>
+				<ul class="nav-test">
+					<li>
+						<a href={{path('app_queens_index')}}>Queens</a>
+					</li>
+					<li>
+						<a href={{path('app_breeds_index')}}>Breeds</a>
+					</li>
+				</ul>
+			</details>
+			<details>
+				<summary>Swarms</summary>
+				<ul class="nav-test">
+					<li>
+						<a href={{path('app_swarms_index')}}>swarms</a>
+					</li>
+					<li>
+						<a href={{path('app_temperaments_index')}}>temperaments</a>
+					</li>
+					<li>
+						<a href={{path('app_populations_index')}}>populations</a>
+					</li>
+					<li>
+						<a href={{path('app_diseases_index')}}>diseases</a>
+					</li>
+				</ul>
+			</details>
+		</div> #}
+	<body>
+		{% block body %}{% endblock %}
+	</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %} {% block title %}Modifier le compte
+{{ t_user_account.email }} {% endblock %} {% block body %}
+<h1>Modifier le compte {{ t_user_account.email }}</h1>
+
+{{
+  include("t_user_account/_form.html.twig", { button_label: "Mettre a jour" })
+}}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_t_user_account_index') }}"
+  >Retour</a
+>
+
+{{ include("t_user_account/_delete_form.html.twig") }}
+{% endblock %}

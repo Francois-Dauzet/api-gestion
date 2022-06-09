@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TTypes{% endblock %}
+
+{% block body %}
+    <h1>TTypes</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ t_type.id }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ t_type.label }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_types_index') }}">back to list</a>
+
+    <a href="{{ path('app_types_edit', {'id': t_type.id}) }}">edit</a>
+
+    {{ include('types/_delete_form.html.twig') }}
+{% endblock %}

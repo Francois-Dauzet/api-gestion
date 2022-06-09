@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %} {% block title %}Types de ruches{% endblock %} {%
+block body %}
+<h1>Types de ruches</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Types</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t_type in t_types %}
+    <tr>
+      <td>
+        <span class="fs-5">{{ t_type.label }}</span>
+      </td>
+      <td>
+        <a
+          class="btn btn-primary m-1"
+          href="{{ path('app_types_edit', { id: t_type.id }) }}"
+          >Modifier</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="2">
+        <a class="text-decoration-none" href="{{ path('app_types_new') }}"
+          ><b>+</b>Ajouter un type de ruche</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a class="btn btn-secondary m-1" href="{{ path('app_user_info_account') }}"
+  >Retour</a
+>
+
+{% endblock %}

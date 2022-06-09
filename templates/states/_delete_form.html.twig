@@ -1,0 +1,12 @@
+<form
+  method="post"
+  action="{{ path('app_states_delete', { id: t_state.id }) }}"
+  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer l\'état général ?');"
+>
+  <input
+    type="hidden"
+    name="_token"
+    value="{{ csrf_token('delete' ~ t_state.id) }}"
+  />
+  <button class="btn btn-danger m-1">Supprimer</button>
+</form>

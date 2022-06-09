@@ -1,0 +1,12 @@
+<form
+  method="post"
+  action="{{ path('app_types_delete', { id: t_type.id }) }}"
+  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer le type de ruche ?');"
+>
+  <input
+    type="hidden"
+    name="_token"
+    value="{{ csrf_token('delete' ~ t_type.id) }}"
+  />
+  <button class="btn btn-danger m-1">Supprimer</button>
+</form>

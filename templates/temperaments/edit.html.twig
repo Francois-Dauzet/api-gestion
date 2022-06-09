@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TTemperaments{% endblock %}
+
+{% block body %}
+    <h1>Edit TTemperaments</h1>
+
+    {{ include('temperaments/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_temperaments_index') }}">back to list</a>
+
+    {{ include('temperaments/_delete_form.html.twig') }}
+{% endblock %}
