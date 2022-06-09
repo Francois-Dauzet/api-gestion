@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %} {% block title %}Matières principales{% endblock
+%} {% block body %}
+<h1>Matières principales</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Matériaux</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t_materiel in t_materiels %}
+    <tr>
+      <td>
+        <span class="fs-5">{{ t_materiel.label }}</span>
+      </td>
+      <td>
+        <a
+          class="btn btn-primary m-1"
+          href="{{ path('app_materials_edit', { id: t_materiel.id }) }}"
+          >Modifier</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="2">
+        <a class="text-decoration-none" href="{{ path('app_materials_new') }}"
+          ><b>+</b>Ajouter une matière principale</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a class="btn btn-secondary m-1" href="{{ path('app_user_info_account') }}"
+  >Retour</a
+>
+
+{% endblock %}

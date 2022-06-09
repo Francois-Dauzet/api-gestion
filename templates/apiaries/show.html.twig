@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %} {% block title %}Le rucher {{ t_apiary.name }}{%
+endblock %} {% block body %}
+<div class="min-vh-100 header-bg pb-5">
+  <div class="apiary-bg pt-3 pb-3">
+    <h1
+      class="text-center text-uppercase text-title-banner bg-dark-banner pt-2 pb-2 border-bottom border-top"
+    >
+      {{ t_apiary.name }}
+    </h1>
+  </div>
+  <div class="container d-flex justify-content-center align-items-center pt-5">
+    <div class="card text-center col-10">
+      <div class="card-header">{{ t_apiary.siteName }}</div>
+      <div class="card-footer text-muted">{{ t_apiary.fkHoneyed }}</div>
+      <div class="card-body">
+        <h5 class="card-title">Note</h5>
+        <p class="card-text">
+          {{ t_apiary.noteText }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="d-flex justify-content-center align-items-center flex-wrap fixed-bottom background-blur"
+  >
+    <a
+      class="btn btn-primary m-3"
+      href="{{ path('app_apiaries_edit', { id: t_apiary.id }) }}"
+      >Modifier</a
+    >
+    <a class="btn btn-secondary m-3" href="{{ path('app_apiaries_index') }}"
+      >Retour</a
+    >
+  </div>
+</div>
+{% endblock %}

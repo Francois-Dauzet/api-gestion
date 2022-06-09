@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %} {% block title %}Modifier le numéro de
+téléphone{% endblock %} {% block body %}
+<h1>Modifier le numéro de téléphone</h1>
+
+{{ include("phone/_form.html.twig", { button_label: "Mettre a jour" }) }}
+
+{{ include("phone/_delete_form.html.twig") }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_phone_index') }}">Retour</a>
+
+{% endblock %}

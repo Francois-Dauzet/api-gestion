@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %} {% block title %}Téléphone{% endblock %} {% block
+body %}
+<h1>Téléphone</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Numéro</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if t_user_info_phone %}
+    <tr>
+      <td>
+        <span class="fs-5">{{ t_user_info_phone.phone }}</span>
+      </td>
+      <td>
+        <a
+          class="btn btn-primary m-1"
+          href="{{
+            path('app_phone_edit', {
+              userIdPhoneAccount: t_user_info_phone.userIdPhoneAccount
+            })
+          }}"
+          >Modifier</a
+        >
+        {{ include("phone/_delete_form.html.twig") }}
+      </td>
+    </tr>
+    {% else %}
+    <tr>
+      <td colspan="2">
+        <a class="text-decoration-none" href="{{ path('app_phone_new') }}"
+          ><b>+</b>Ajouter un numéro de téléphone</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+{% endif %}
+<a class="btn btn-secondary m-1" href="{{ path('app_user_info_account') }}"
+  >Retour</a
+>
+
+{% endblock %}

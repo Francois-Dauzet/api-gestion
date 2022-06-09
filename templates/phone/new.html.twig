@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %} {% block title %}Crée un numéro de téléphone{%
+endblock %} {% block body %}
+<h1>Crée un numéro de téléphone</h1>
+
+{{ include("phone/_form.html.twig") }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_phone_index') }}">Retour</a>
+{% endblock %}

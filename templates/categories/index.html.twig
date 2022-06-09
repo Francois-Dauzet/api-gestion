@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %} {% block title %}Catégories de ruches{% endblock
+%} {% block body %}
+<h1>Catégories de ruches</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Catégories</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t_category in t_categories %}
+    <tr>
+      <td>
+        <span class="fs-5">{{ t_category.label }}</span>
+      </td>
+      <td>
+        <a
+          class="btn btn-primary m-1"
+          href="{{ path('app_categories_edit', { id: t_category.id }) }}"
+          >Modifier</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="2">
+        <a class="text-decoration-none" href="{{ path('app_categories_new') }}"
+          ><b>+</b>Ajouter une catégorie de ruche</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a class="btn btn-secondary m-1" href="{{ path('app_user_info_account') }}"
+  >Retour</a
+>
+
+{% endblock %}

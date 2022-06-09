@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %} {% block title %}Modifier la ruche{% endblock %}
+{% block body %}
+<h1>Modifier la ruche</h1>
+
+{{ include("hives/_form.html.twig", { button_label: "Mettre à jour" }) }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_hives_index') }}">Retour</a>
+
+{{ include("hives/_delete_form.html.twig") }}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %} {% block title %}Modifier le type de miellée{%
+endblock %} {% block body %}
+<h1>Modifier le type de miellée</h1>
+
+{{ include("honeyed/_form.html.twig", { button_label: "Mettre a jour" }) }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_honeyed_index') }}"
+  >Retour</a
+>
+
+{{ include("honeyed/_delete_form.html.twig") }}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %} {% block title %}Ajouter un rucher{% endblock %}
+{% block body %}
+<h1>Ajouter un rucher</h1>
+
+{{ include("apiaries/_form.html.twig") }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_apiaries_index') }}"
+  >Retour</a
+>
+{% endblock %}

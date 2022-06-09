@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %} {% block title %}Types de miellées{% endblock %}
+{% block body %}
+<h1>Types de miellées</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t_honeyed in t_honeyeds %}
+    <tr>
+      <td>
+        <span class="fs-5">{{ t_honeyed.label }}</span>
+      </td>
+      <td>
+        <a
+          class="btn btn-primary m-1"
+          href="{{ path('app_honeyed_edit', { id: t_honeyed.id }) }}"
+          >Modifier</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="2">
+        <a class="text-decoration-none" href="{{ path('app_honeyed_new') }}"
+          ><b>+</b>Ajouter un type de miellée</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a class="btn btn-secondary m-1" href="{{ path('app_user_info_account') }}"
+  >Retour</a
+>
+
+{% endblock %}

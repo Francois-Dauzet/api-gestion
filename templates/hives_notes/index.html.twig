@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TNotes index{% endblock %}
+
+{% block body %}
+    <h1>TNotes index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CreatedDate</th>
+                <th>NoteText</th>
+                <th>AuthorName</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_note in t_notes %}
+            <tr>
+                <td>{{ t_note.id }}</td>
+                <td>{{ t_note.createdDate ? t_note.createdDate|date('Y-m-d') : '' }}</td>
+                <td>{{ t_note.noteText }}</td>
+                <td>{{ t_note.authorName }}</td>
+                <td>
+                    <a href="{{ path('app_hives_notes_show', {'id': t_note.id}) }}">show</a>
+                    <a href="{{ path('app_hives_notes_edit', {'id': t_note.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_hives_notes_new') }}">Create new</a>
+{% endblock %}

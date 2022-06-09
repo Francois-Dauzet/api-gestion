@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TQueens{% endblock %}
+
+{% block body %}
+    <h1>TQueens</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ t_queen.id }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ t_queen.reference }}</td>
+            </tr>
+            <tr>
+                <th>FertilizationDate</th>
+                <td>{{ t_queen.fertilizationDate ? t_queen.fertilizationDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Marking</th>
+                <td>{{ t_queen.marking ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Orphan</th>
+                <td>{{ t_queen.orphan ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_queens_index') }}">back to list</a>
+
+    <a href="{{ path('app_queens_edit', {'id': t_queen.id}) }}">edit</a>
+
+    {{ include('queens/_delete_form.html.twig') }}
+{% endblock %}

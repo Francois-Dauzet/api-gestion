@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TPopulations index{% endblock %}
+
+{% block body %}
+    <h1>TPopulations index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_population in t_populations %}
+            <tr>
+                <td>{{ t_population.id }}</td>
+                <td>{{ t_population.label }}</td>
+                <td>
+                    <a href="{{ path('app_populations_show', {'id': t_population.id}) }}">show</a>
+                    <a href="{{ path('app_populations_edit', {'id': t_population.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_populations_new') }}">Create new</a>
+{% endblock %}

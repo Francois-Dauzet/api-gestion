@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %} {% block title %}Formats de ruches{% endblock %}
+{% block body %}
+<h1>Formats de ruches</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Formats</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t_format in t_formats %}
+    <tr>
+      <td>
+        <span class="fs-5">{{ t_format.label }}</span>
+      </td>
+      <td>
+        <a
+          class="btn btn-primary m-1"
+          href="{{ path('app_formats_edit', { id: t_format.id }) }}"
+          >Modifier</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="2">
+        <a class="text-decoration-none" href="{{ path('app_formats_new') }}"
+          ><b>+</b>Ajouter un format de ruche</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a class="btn btn-secondary m-1" href="{{ path('app_user_info_account') }}"
+  >Retour</a
+>
+
+{% endblock %}

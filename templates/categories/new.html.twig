@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %} {% block title %}Crée une catégorie de ruche{%
+endblock %} {% block body %}
+<h1>Crée une catégorie de ruche</h1>
+
+{{ include("categories/_form.html.twig") }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_categories_index') }}"
+  >Retour</a
+>
+{% endblock %}

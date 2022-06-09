@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %} {% block title %}Crée une date de naissance{%
+endblock %} {% block body %}
+<h1>Crée une date de naissance</h1>
+
+{{ include("birthdate/_form.html.twig") }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_birthdate_index') }}"
+  >Retour</a
+>
+{% endblock %}

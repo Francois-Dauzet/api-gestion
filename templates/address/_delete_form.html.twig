@@ -1,0 +1,16 @@
+<form
+  method="post"
+  action="{{
+    path('app_address_delete', {
+      userIdAddressAccount: t_users_info_address.userIdAddressAccount
+    })
+  }}"
+  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer l\'adresse ?');"
+>
+  <input
+    type="hidden"
+    name="_token"
+    value="{{ csrf_token('delete' ~ t_users_info_address.userIdAddressAccount) }}"
+  />
+  <button class="btn btn-danger m-1">Supprimer</button>
+</form>

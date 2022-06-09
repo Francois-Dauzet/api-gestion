@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %} {% block title %}Modifier la matière principale{%
+endblock %} {% block body %}
+<h1>Modifier la matière principale</h1>
+
+{{ include("materials/_form.html.twig", { button_label: "Mettre à jour" }) }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_materials_index') }}"
+  >Retour</a
+>
+
+{{ include("materials/_delete_form.html.twig") }}
+{% endblock %}

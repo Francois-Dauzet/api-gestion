@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %} {% block title %}Crée une matière principale{%
+endblock %} {% block body %}
+<h1>Crée une matière principale</h1>
+
+{{ include("materials/_form.html.twig") }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_materials_index') }}"
+  >Retour</a
+>
+{% endblock %}

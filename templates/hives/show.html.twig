@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %} {% block title %}La ruche
+{{ t_hive.reference }}{% endblock %} {% block body %}
+
+<div class="min-vh-100 header-bg pb-5">
+  <div class="apiary-bg pt-3 pb-3">
+    <h1
+      class="text-center text-uppercase text-title-banner bg-dark-banner pt-2 pb-2 border-bottom border-top"
+    >
+      {{ t_hive.reference }}
+    </h1>
+  </div>
+  <div class="container d-flex justify-content-center align-items-center pt-5">
+    <div class="card text-center col-10">
+      <div class="card-header">{{ t_hive.fkApiary }}</div>
+      <div class="card-footer text-muted">
+        {{ t_hive.purchaseDate ? t_hive.purchaseDate|date('Y-m-d') : '' }}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Format de ruche</h5>
+        <p class="card-text">
+          {{ t_hive.fkFormat }}
+        </p>
+        <h5 class="card-title">Type de ruche</h5>
+        <p class="card-text">
+          {{ t_hive.fkType }}
+        </p>
+        <h5 class="card-title">Catégorie de ruche</h5>
+        <p class="card-text">
+          {{ t_hive.fkCategory }}
+        </p>
+        <h5 class="card-title">Etat général</h5>
+        <p class="card-text">
+          {{ t_hive.fkState }}
+        </p>
+        <h5 class="card-title">Matière principale</h5>
+        <p class="card-text">
+          {{ t_hive.fkMaterial }}
+        </p>
+        <h5 class="card-title">Note</h5>
+        <p class="card-text">
+          {{ t_hive.noteText }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="d-flex justify-content-center align-items-center flex-wrap fixed-bottom background-blur"
+  >
+    <a
+      class="btn btn-primary m-3"
+      href="{{ path('app_hives_edit', { id: t_hive.id }) }}"
+      >Modifier</a
+    >
+    <a class="btn btn-secondary m-3" href="{{ path('app_hives_index') }}"
+      >Retour</a
+    >
+  </div>
+</div>
+{% endblock %}

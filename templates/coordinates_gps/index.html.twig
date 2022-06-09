@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TCoordinatesGps index{% endblock %}
+
+{% block body %}
+    <h1>TCoordinatesGps index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_coordinates_gp in t_coordinates_gps %}
+            <tr>
+                <td>{{ t_coordinates_gp.id }}</td>
+                <td>{{ t_coordinates_gp.longitude }}</td>
+                <td>{{ t_coordinates_gp.latitude }}</td>
+                <td>
+                    <a href="{{ path('app_coordinates_gps_show', {'id': t_coordinates_gp.id}) }}">show</a>
+                    <a href="{{ path('app_coordinates_gps_edit', {'id': t_coordinates_gp.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_coordinates_gps_new') }}">Create new</a>
+{% endblock %}

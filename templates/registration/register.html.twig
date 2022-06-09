@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %} {% block title %}Inscription {% endblock %} {%
+block body %} {% if app.user %}
+<div
+  class="header-bg vh-100 d-flex text-center align-items-center justify-content-center flex-column flex-grow-1"
+>
+  Vous êtes déjà connecté avec l'adresse email "{{ app.user.username }}"
+  <div
+    class="d-flex align-items-center justify-content-center flex-wrap hover-btn transition-btn mt-1"
+  >
+    <a
+      class="btn btn-lg btn-secondary m-2 hover-btn transition-btn"
+      href="{{ path('app_home') }}"
+      >Retour</a
+    >
+    <a
+      class="btn btn-lg btn-danger m-2 hover-btn transition-btn"
+      href="{{ path('app_logout') }}"
+      >Déconnexion</a
+    >
+
+    <a
+      class="btn btn-lg btn-success m-2 hover-btn transition-btn"
+      href="{{ path('app_user_dashboard') }}"
+    >
+      Dashboard
+    </a>
+  </div>
+</div>
+{% else %}
+<div
+  class="header-bg vh-100 d-flex align-items-center justify-content-center flex-column flex-grow-1"
+>
+  <div
+    class="d-flex align-items-center justify-content-center flex-column bg-white p-4 rounded-3"
+  >
+    <h1 class="h3 mb-3 font-weight-normal">INSCRIPTION</h1>
+    <a
+      class="text-decoration-none mb-2 hover-link transition-btn"
+      href="{{ path('app_login') }}"
+      >Connexion</a
+    >
+    {{ form_start(registrationForm) }}
+    {{ form_row(registrationForm.email) }}
+    {{
+      form_row(registrationForm.plainPassword, {
+        label: "Mot de passe"
+      })
+    }}
+    {{ form_row(registrationForm.agreeTerms) }}
+    <div class="text-center">
+      <button
+        id="btn-login"
+        type="submit"
+        class="btn btn-lg btn-primary hover-btn transition-btn"
+      >
+        S'inscrire
+      </button>
+    </div>
+    {{ form_end(registrationForm) }}
+    <div id="spinner" class="d-none pt-5 spinner spinner-small text-blue">
+      <svg viewBox="25 25 50 50">
+        <circle
+          class="spinner-path"
+          cx="50"
+          cy="50"
+          r="20"
+          fill="none"
+          stroke-width="3"
+        />
+      </svg>
+    </div>
+  </div>
+  <a
+    class="text-decoration-none pt-3 hover-link transition-btn"
+    href="{{ path('app_home') }}"
+    >Retour a l'accueil</a
+  >
+</div>
+{% endif %} {% endblock %}

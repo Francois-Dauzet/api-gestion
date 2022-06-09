@@ -1,0 +1,16 @@
+<form
+  method="post"
+  action="{{
+    path('app_phone_delete', {
+      userIdPhoneAccount: t_user_info_phone.userIdPhoneAccount
+    })
+  }}"
+  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer le numéro de téléphone ?');"
+>
+  <input
+    type="hidden"
+    name="_token"
+    value="{{ csrf_token('delete' ~ t_user_info_phone.userIdPhoneAccount) }}"
+  />
+  <button class="btn btn-danger m-1">Supprimer</button>
+</form>

@@ -1,0 +1,158 @@
+{% extends 'base.html.twig' %} {% block title %}Accueil {% endblock %} {% block
+body %}
+<div class="vh-100 mb-5">
+  <div class="header-bg h-100 d-flex flex-column">
+    {% if app.user %}
+    <div
+      class="position-absolute w-100 d-flex text-center align-items-start justify-content-between flex-grow-1"
+    >
+      <a
+        class="btn ms-4 mt-2 p-2 hover-btn transition-btn"
+        href="{{ path('app_user_dashboard') }}"
+        ><img
+          style="width: 3rem"
+          class="img-fluid"
+          src="{{ asset('img/dashboard_white_24dp.svg') }}"
+          alt=""
+      /></a>
+      <a
+        class="btn me-4 mt-2 p-2 hover-btn transition-btn"
+        href="{{ path('app_user_info_account') }}"
+        ><img
+          style="width: 3rem"
+          class="img-fluid"
+          src="{{ asset('img/account_circle_white_24dp.svg') }}"
+          alt=""
+      /></a>
+    </div>
+
+    <div class="container d-flex align-items-center flex-grow-1">
+      <div
+        class="d-flex justify-content-center align-items-center h-100 flex-grow-1"
+      >
+        <div class="col-7 col-md-4 col-sm-4 col-lg-3">
+          <div class="d-flex flex-column align-items-center">
+            <img
+              class="img-fluid pb-5"
+              src="{{ asset('img/logo__api_gestion.png') }}"
+              alt=""
+            />
+            <a
+              class="btn btn-lg btn-danger m-2 hover-btn transition-btn"
+              href="{{ path('app_logout') }}"
+              >Déconnexion</a
+            >
+          </div>
+        </div>
+      </div>
+
+      {% else %}
+      <div class="container d-flex align-items-center flex-grow-1">
+        <div
+          class="d-flex justify-content-center align-items-center h-100 flex-grow-1"
+        >
+          <div class="col-7 col-md-4 col-sm-4 col-lg-3">
+            <div class="d-flex flex-column align-items-center">
+              <img
+                class="img-fluid pb-5"
+                src="{{ asset('img/logo__api_gestion.png') }}"
+                alt=""
+              />
+              <a
+                class="btn btn-lg btn-md-sm btn-block btn-primary m-2 hover-btn transition-btn"
+                href="{{ path('app_login') }}"
+              >
+                CONNEXION
+              </a>
+
+              <a
+                class="btn btn-lg btn-block btn-success m-2 mb-5 hover-btn transition-btn"
+                href="{{ path('app_register') }}"
+              >
+                INSCRIPTION
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="container-presentation">
+    <div
+      class="container d-flex align-items-center flex-grow-1 pt-5 pb-5 wrap-media-screen-800"
+    >
+      <div class="">
+        <h1>Le Dashboard</h1>
+        <h2 class="ps-2">Gestion des ruches et des ruchers</h2>
+        <p>
+          Dans le dashboard vous pouvez accéder à de multiples menus comme le
+          retour à l'accueil ou encore les paramètres de compte, vous pouvez
+          aussi accéder à vos ruches et à vos ruchers pour pouvoir en ajouter ou
+          en supprimer.
+        </p>
+      </div>
+      <img
+        class="m-3 img-fluid shadow-lg rounded-3"
+        src="{{ asset('img/pre_dashboard.png') }}"
+        alt=""
+      />
+    </div>
+    <div
+      class="container d-flex align-items-center flex-grow-1 pt-5 pb-5 wrap-media-screen-800R"
+    >
+      <img
+        class="m-3 img-fluid shadow-lg rounded-3"
+        src="{{ asset('img/pre_category.png') }}"
+        alt=""
+      />
+      <div class="">
+        <h1>Mon Compte</h1>
+        <h2 class="ps-2">Paramétrage du profil</h2>
+        <p>
+          Dans le menu mon compte vous pouvez afficher et modifier toutes les
+          informations sur votre identité ainsi que toutes les catégories que
+          vous souhaiteraient utiliser au sein de l'application.
+        </p>
+      </div>
+    </div>
+    <div
+      class="container d-flex align-items-center flex-grow-1 pt-5 pb-5 wrap-media-screen-800"
+    >
+      <div class="">
+        <h1>Mes Ruchers</h1>
+        <h2 class="ps-2">Gestion des ruchers</h2>
+        <p>
+          Dans la section mes ruchers vous pouvez ajouter des ruchers avec leurs
+          informations personnelles ainsi qu'afficher, modifier ou supprimer un
+          rucher préalablement crée.
+        </p>
+      </div>
+      <img
+        class="m-3 img-fluid shadow-lg rounded-3"
+        src="{{ asset('img/pre_apiary.png') }}"
+        alt=""
+      />
+    </div>
+    <div
+      class="container d-flex align-items-center flex-grow-1 pt-5 pb-5 wrap-media-screen-800R"
+    >
+      <img
+        class="m-3 img-fluid shadow-lg rounded-3"
+        src="{{ asset('img/pre_hive.png') }}"
+        alt=""
+      />
+      <div class="">
+        <h1>Mes Ruches</h1>
+        <h2 class="ps-2">Gestion des ruches</h2>
+        <p>
+          Dans la section mes ruches vous pouvez ajouter des ruches avec leurs
+          informations personnelles ainsi qu'afficher, modifier ou supprimer une
+          ruche préalablement créée, il est aussi possible de raccorder chaque
+          ruche à un rucher.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

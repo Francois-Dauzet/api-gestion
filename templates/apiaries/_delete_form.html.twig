@@ -1,0 +1,14 @@
+<form
+  method="post"
+  action="{{ path('app_apiaries_delete', { id: t_apiary.id }) }}"
+  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer le rucher {{
+    t_apiary.name
+  }} ?');"
+>
+  <input
+    type="hidden"
+    name="_token"
+    value="{{ csrf_token('delete' ~ t_apiary.id) }}"
+  />
+  <button class="btn btn-danger m-1">Supprimer</button>
+</form>

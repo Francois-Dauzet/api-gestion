@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TQueens index{% endblock %}
+
+{% block body %}
+    <h1>TQueens index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Reference</th>
+                <th>FertilizationDate</th>
+                <th>Marking</th>
+                <th>Orphan</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_queen in t_queens %}
+            <tr>
+                <td>{{ t_queen.id }}</td>
+                <td>{{ t_queen.reference }}</td>
+                <td>{{ t_queen.fertilizationDate ? t_queen.fertilizationDate|date('Y-m-d') : '' }}</td>
+                <td>{{ t_queen.marking ? 'Yes' : 'No' }}</td>
+                <td>{{ t_queen.orphan ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_queens_show', {'id': t_queen.id}) }}">show</a>
+                    <a href="{{ path('app_queens_edit', {'id': t_queen.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_queens_new') }}">Create new</a>
+{% endblock %}

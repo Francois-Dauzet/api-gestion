@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TUserInfoPhone{% endblock %}
+
+{% block body %}
+    <h1>TUserInfoPhone</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Phone</th>
+                <td>{{ t_user_info_phone.phone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_phone_index') }}">back to list</a>
+
+    <a href="{{ path('app_phone_edit', {'userIdPhoneAccount': t_user_info_phone.userIdPhoneAccount}) }}">edit</a>
+
+    {{ include('phone/_delete_form.html.twig') }}
+{% endblock %}

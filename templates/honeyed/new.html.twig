@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %} {% block title %}Crée un type de miellée{%
+endblock %} {% block body %}
+<h1>Crée un type de miellée</h1>
+
+{{ include("honeyed/_form.html.twig") }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_honeyed_index') }}"
+  >Retour</a
+>
+{% endblock %}

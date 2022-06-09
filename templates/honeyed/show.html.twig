@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %} {% block title %}THoneyed{% endblock %} {% block
+body %}
+<h1>THoneyed</h1>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Id</th>
+      <td>{{ t_honeyed.id }}</td>
+    </tr>
+    <tr>
+      <th>Label</th>
+      <td>{{ t_honeyed.label }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<a href="{{ path('app_honeyed_index') }}">back to list</a>
+
+<a href="{{ path('app_honeyed_edit', { id: t_honeyed.id }) }}">edit</a>
+
+{{ include("honeyed/_delete_form.html.twig") }}
+{% endblock %}

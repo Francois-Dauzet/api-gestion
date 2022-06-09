@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %} {% block title %}Crée un format de ruche{%
+endblock %} {% block body %}
+<h1>Crée un format de ruche</h1>
+
+{{ include("formats/_form.html.twig") }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_formats_index') }}"
+  >Retour</a
+>
+{% endblock %}

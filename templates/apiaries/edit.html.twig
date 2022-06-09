@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %} {% block title %}Modifier le rucher{% endblock %}
+{% block body %}
+<h1>Modifier le rucher</h1>
+
+{{ include("apiaries/_form.html.twig", { button_label: "Mettre à jour" }) }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_apiaries_index') }}"
+  >Retour</a
+>
+
+{{ include("apiaries/_delete_form.html.twig") }}
+{% endblock %}

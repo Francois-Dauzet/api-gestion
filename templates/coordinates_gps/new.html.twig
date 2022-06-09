@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TCoordinatesGps{% endblock %}
+
+{% block body %}
+    <h1>Create new TCoordinatesGps</h1>
+
+    {{ include('coordinates_gps/_form.html.twig') }}
+
+    <a href="{{ path('app_coordinates_gps_index') }}">back to list</a>
+{% endblock %}

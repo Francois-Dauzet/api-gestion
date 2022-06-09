@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TBreeds{% endblock %}
+
+{% block body %}
+    <h1>Create new TBreeds</h1>
+
+    {{ include('breeds/_form.html.twig') }}
+
+    <a href="{{ path('app_breeds_index') }}">back to list</a>
+{% endblock %}

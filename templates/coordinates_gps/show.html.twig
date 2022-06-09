@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TCoordinatesGps{% endblock %}
+
+{% block body %}
+    <h1>TCoordinatesGps</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ t_coordinates_gp.id }}</td>
+            </tr>
+            <tr>
+                <th>Longitude</th>
+                <td>{{ t_coordinates_gp.longitude }}</td>
+            </tr>
+            <tr>
+                <th>Latitude</th>
+                <td>{{ t_coordinates_gp.latitude }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_coordinates_gps_index') }}">back to list</a>
+
+    <a href="{{ path('app_coordinates_gps_edit', {'id': t_coordinates_gp.id}) }}">edit</a>
+
+    {{ include('coordinates_gps/_delete_form.html.twig') }}
+{% endblock %}

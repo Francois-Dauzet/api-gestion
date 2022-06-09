@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TUserInfoBirthdate
+{% endblock %}
+
+{% block body %}
+	<h1>TUserInfoBirthdate</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Birthdate</th>
+				<td>{{ t_user_info_birthdate.birthdate ? t_user_info_birthdate.birthdate|date('d-m-Y') : '' }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_birthdate_index') }}">back to list</a>
+
+	<a href="{{ path('app_birthdate_edit', {'userIdBirthdateAccount': t_user_info_birthdate.userIdBirthdateAccount}) }}">edit</a>
+
+	{{ include('birthdate/_delete_form.html.twig') }}
+{% endblock %}

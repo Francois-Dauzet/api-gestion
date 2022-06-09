@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %} {% block title %}Compte{% endblock %} {% block
+body %}
+
+<div
+  class="header-bg min-vh-100 d-flex flex-column align-items-center justify-content-center"
+>
+  <div
+    class="d-flex flex-column text-center align-items-center justify-content-center bg-white p-4 rounded-3"
+  >
+    <img
+      class="img-fluid"
+      src="{{ asset('img/account_circle_black_24dp.svg') }}"
+      alt=""
+    />
+    <h1 class="h3 mt-2 font-weight-normal text-uppercase">Mon compte</h1>
+    <a
+      class="btn btn-lg btn-danger m-2 hover-btn transition-btn"
+      href="{{ path('app_logout') }}"
+      >Déconnexion</a
+    >
+    {% if is_granted('ROLE_ADMIN') %}
+    <details
+      class="d-flex flex-column align-items-center justify-content-center mt-3"
+    >
+      <summary class="m-2 btn btn-primary hover-btn transition-btn">
+        <h5>Mes informations</h5>
+      </summary>
+      <div class="d-flex flex-wrap align-items-center justify-content-center">
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_identity_index') }}"
+        >
+          Identité
+        </a>
+
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_phone_index') }}"
+        >
+          Téléphone
+        </a>
+
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_birthdate_index') }}"
+        >
+          Date de naissance
+        </a>
+
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_address_index') }}"
+        >
+          Adresse
+        </a>
+      </div>
+    </details>
+    {% elseif is_granted('ROLE_USER') %}
+    <details
+      class="d-flex flex-column align-items-center justify-content-center mt-3"
+    >
+      <summary class="m-2 btn btn-primary hover-btn transition-btn">
+        <h5>Mes informations</h5>
+      </summary>
+      <div class="d-flex flex-wrap align-items-center justify-content-center">
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_identity_index') }}"
+        >
+          Identité
+        </a>
+
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_phone_index') }}"
+        >
+          Téléphone
+        </a>
+
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_birthdate_index') }}"
+        >
+          Date de naissance
+        </a>
+
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_address_index') }}"
+        >
+          Adresse
+        </a>
+      </div>
+    </details>
+    <details
+      class="border-top d-flex text-center flex-column align-items-center justify-content-center"
+    >
+      <summary class="m-2 btn btn-primary hover-btn transition-btn">
+        <h5>Mes catégories</h5>
+      </summary>
+      <div class="d-flex flex-wrap align-items-center justify-content-center">
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_honeyed_index') }}"
+        >
+          Types de miellées
+        </a>
+
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_categories_index') }}"
+        >
+          Catégories de ruches
+        </a>
+
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_types_index') }}"
+        >
+          Types de ruches
+        </a>
+
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_formats_index') }}"
+        >
+          Formats de ruches
+        </a>
+
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_materials_index') }}"
+        >
+          Matières principales
+        </a>
+
+        <a
+          class="btn btn-lg btn-block btn-info m-2 hover-btn transition-btn"
+          href="{{ path('app_states_index') }}"
+        >
+          Etat général
+        </a>
+      </div>
+    </details>
+    {% endif %}
+    <a
+      class="btn btn-lg btn-block btn-secondary mt-4 hover-btn transition-btn"
+      href="{{ path('app_user_dashboard') }}"
+    >
+      Retour
+    </a>
+  </div>
+</div>
+
+{% endblock %}

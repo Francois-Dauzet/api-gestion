@@ -1,0 +1,16 @@
+<form
+  method="post"
+  action="{{
+    path('app_identity_delete', {
+      userIdIdentityAccount: t_users_info_identity.userIdIdentityAccount
+    })
+  }}"
+  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer le nom et le prénom ?');"
+>
+  <input
+    type="hidden"
+    name="_token"
+    value="{{ csrf_token('delete' ~ t_users_info_identity.userIdIdentityAccount) }}"
+  />
+  <button class="btn btn-danger m-1">Supprimer</button>
+</form>

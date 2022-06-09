@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %} {% block title %}Dashboard{% endblock %} {% block
+body %}
+<div class="header-bg vh-100">
+  <div
+    class="d-flex text-center align-items-center justify-content-between flex-grow-1"
+  >
+    <a
+      class="btn ms-4 mt-2 p-2 hover-btn transition-btn"
+      href="{{ path('app_home') }}"
+      ><img
+        style="width: 3rem"
+        class="img-fluid"
+        src="{{ asset('img/home_white_24dp.svg') }}"
+        alt=""
+    /></a>
+    <a
+      class="btn me-4 mt-2 p-2 hover-btn transition-btn"
+      href="{{ path('app_user_info_account') }}"
+      ><img
+        style="width: 3rem"
+        class="img-fluid"
+        src="{{ asset('img/account_circle_white_24dp.svg') }}"
+        alt=""
+    /></a>
+  </div>
+  {% if is_granted('ROLE_ADMIN') %}
+  <div class="d-flex align-items-center justify-content-center">
+    <a
+      class="m-1 mt-5 col-8 col-sm-4 col-md-3 col-lg-2 pt-5 hover-icon transition-btn rounded-circle"
+      href="{{ path('app_t_user_account_index') }}"
+      ><img class="img-fluid" src="{{ asset('img/admin.png') }}" alt=""
+    /></a>
+  </div>
+  {% elseif is_granted('ROLE_USER') %}
+  <div
+    class="h-75 d-flex text-center align-items-center justify-content-center flex-wrap flex-grow-1"
+  >
+    <a
+      class="m-1 ms-5 me-5 col-6 col-sm-4 col-md-3 col-lg-2 hover-icon transition-btn rounded-circle"
+      href="{{ path('app_apiaries_index') }}"
+      ><img
+        class="img-fluid"
+        src="{{ asset('img/bee_cell_apiary.png') }}"
+        alt=""
+    /></a>
+    <a
+      class="m-1 ms-5 me-5 col-6 col-sm-4 col-md-3 col-lg-2 hover-icon transition-btn rounded-circle"
+      href="{{ path('app_hives_index') }}"
+      ><img class="img-fluid" src="{{ asset('img/bee_cell_hive.png') }}" alt=""
+    /></a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

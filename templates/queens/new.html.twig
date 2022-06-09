@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TQueens{% endblock %}
+
+{% block body %}
+    <h1>Create new TQueens</h1>
+
+    {{ include('queens/_form.html.twig') }}
+
+    <a href="{{ path('app_queens_index') }}">back to list</a>
+{% endblock %}

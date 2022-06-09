@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %} {% block title %}Crée le nom et le prénom{%
+endblock %} {% block body %}
+<h1>Crée le nom et le prénom</h1>
+
+{{ include("identity/_form.html.twig") }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_identity_index') }}"
+  >Retour</a
+>
+{% endblock %}

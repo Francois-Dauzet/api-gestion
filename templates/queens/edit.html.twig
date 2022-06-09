@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TQueens{% endblock %}
+
+{% block body %}
+    <h1>Edit TQueens</h1>
+
+    {{ include('queens/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_queens_index') }}">back to list</a>
+
+    {{ include('queens/_delete_form.html.twig') }}
+{% endblock %}

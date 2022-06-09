@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %} {% block title %}Modifier le format de ruche{%
+endblock %} {% block body %}
+<h1>Modifier le format de ruche</h1>
+
+{{ include("formats/_form.html.twig", { button_label: "Mettre à jour" }) }}
+
+<a class="btn btn-secondary m-1" href="{{ path('app_formats_index') }}"
+  >Retour</a
+>
+
+{{ include("formats/_delete_form.html.twig") }}
+{% endblock %}

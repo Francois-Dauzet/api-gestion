@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TPopulations{% endblock %}
+
+{% block body %}
+    <h1>Edit TPopulations</h1>
+
+    {{ include('populations/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_populations_index') }}">back to list</a>
+
+    {{ include('populations/_delete_form.html.twig') }}
+{% endblock %}

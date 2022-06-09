@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TCoordinatesGps{% endblock %}
+
+{% block body %}
+    <h1>Edit TCoordinatesGps</h1>
+
+    {{ include('coordinates_gps/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_coordinates_gps_index') }}">back to list</a>
+
+    {{ include('coordinates_gps/_delete_form.html.twig') }}
+{% endblock %}

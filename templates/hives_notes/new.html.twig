@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TNotes{% endblock %}
+
+{% block body %}
+    <h1>Create new TNotes</h1>
+
+    {{ include('hives_notes/_form.html.twig') }}
+
+    <a href="{{ path('app_hives_notes_index') }}">back to list</a>
+{% endblock %}
