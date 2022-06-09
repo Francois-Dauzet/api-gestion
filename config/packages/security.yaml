@@ -1,0 +1,52 @@
+security:
+  enable_authenticator_manager: true # / Active le gestionnaire d'authentification
+  # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+
+  password_hashers: # / Processus de hachage cryptographique des mots de passe
+    Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: "auto"
+  # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
+  providers:
+    # users_in_memory: { memory: null } # / Requete via un tableau json
+    app_user_provider: # / renvoie un utilisateur à partir des credentials
+      entity: # / Requete via une entité
+        class: App\Entity\TUserAccount # / Classe de l'entité qui représente les utilisateurs
+        property: email # / Propriété à interroger
+  firewalls:
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|images|js)/
+      security: false
+    main:
+      lazy: true
+      # / Choix de la requête
+      provider: app_user_provider
+      custom_authenticator: App\Security\UserAuthAuthenticator # / Chemin de l'authenticator utilisé
+      logout:
+        path: app_logout # / Chemin pour la déconnexion
+        target: app_home # / Redirection après déconnexion
+
+      # activate different ways to authenticate
+      # https://symfony.com/doc/current/security.html#the-firewall
+
+      # https://symfony.com/doc/current/security/impersonating_user.html
+      # switch_user: true
+
+  # Un moyen simple de contrôler l'accès à de grandes sections de votre site
+  # Note: Seul le *premier* contrôle d'accès qui correspond sera utilisé
+  access_control:
+    # / Défini la route des administrateurs
+    - { path: ^/admin, roles: ROLE_ADMIN }
+    # / Défini la route des utilisateurs
+    - { path: ^/user, roles: ROLE_USER }
+
+when@test:
+  security:
+    password_hashers:
+      # Par défaut, les hacheurs de mot de passe sont gourmands en ressources et prennent du temps. C'est
+      # important de générer des hachages de mots de passe sécurisés. Dans les tests cependant, les hachages sécurisés
+      # ne sont pas importants, gaspillent des ressources et augmentent la durée des tests. Ce qui suit
+      # réduit le facteur de travail aux valeurs les plus basses possibles.
+      Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+        algorithm: auto
+        cost: 4 # La valeur la plus basse possible pour bcrypt
+        time_cost: 3 # Valeur la plus basse possible pour argon
+        memory_cost: 10 # Valeur la plus basse possible pour argon
